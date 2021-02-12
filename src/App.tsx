@@ -1,25 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+
+import './styles/main.sass';
+
+import {Nav} from './components/Nav/Nav';
+import {Header} from './components/Database/Header/Header';
+import {Movies} from './components/Database/Movies/Movies';
+import {Searcher} from './components/Database/Searcher/Searcher';
+import {Movie} from './components/Movie/Movie';
+
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Switch>
+          <Route path="/database">
+            <Nav />
+            <Header />
+            <Searcher />
+            <Movies />
+          </Route>
+          <Route path="/movie">
+            <Nav />
+            <Movie />
+          </Route>
+          <Route path="/">
+            <Nav />
+            <Header />
+            <Searcher />
+            <Movies />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

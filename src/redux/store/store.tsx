@@ -1,5 +1,5 @@
 import {compose, createStore} from 'redux';
-import {rootReducer} from "../../../../../dish-randomizer-react-redux/src/redux/reducers/rootReducer";
+import {rootReducer} from '../reducers/rootReducer';
 
 declare global {
   interface Window {
@@ -14,7 +14,7 @@ const persistedState = localStorage.getItem('reduxState')
   : {};
 
 export const store = createStore(
-rootReducer,
+  rootReducer,
   persistedState,
   composeEnhancers()
 );
