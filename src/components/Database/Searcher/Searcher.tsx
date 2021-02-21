@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './searcher.module.sass';
-import loupe from './img/loupe.svg';
+import loupe from './icons/loupe.svg';
 
 export function Searcher(): JSX.Element {
   return (

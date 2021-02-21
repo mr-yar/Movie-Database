@@ -103,7 +103,11 @@
     "no-multiple-empty-lines": ["warn", {"max": 2}],
     "space-in-parens": "warn",
     "array-bracket-spacing": "warn",
-    "object-curly-spacing": ["warn", "never"],
+    "object-curly-spacing": [
+      "warn",
+      "never",
+      {"objectsInObjects": true}
+    ],
     "block-spacing": "warn",
     "comma-spacing": "warn",
     "computed-property-spacing": "warn",
@@ -115,8 +119,12 @@
     "comma-dangle": ["warn", "never"],
     "no-new-wrappers": "warn",
     "radix": ["warn", "always"],
-    "camelcase": "warn",
     "new-cap": "warn",
-    "react/jsx-one-expression-per-line": "warn"
+    "react/jsx-one-expression-per-line": "warn",
+    "no-debugger": "warn",
+    "jsx-a11y/interactive-supports-focus": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "require-yield": "warn",
+    "react/jsx-indent": "warn"
   }
 }

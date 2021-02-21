@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 import styles from './nav.module.sass';
 
-import logoDatabase from './img/database-storage.svg';
-import logoMovie from './img/clapperboard.svg';
+import logoDatabase from './icons/database-storage.svg';
+import logoMovie from './icons/clapperboard.svg';
 
 export function Nav(): JSX.Element {
   return (
@@ -16,11 +16,7 @@ export function Nav(): JSX.Element {
           </div>
           <div className="menu">
             <Link to="/database">
-              <img
-                src={logoDatabase}
-                alt=""
-                className={styles.pages}
-              />
+              <img src={logoDatabase} alt="" className={styles.pages} />
             </Link>
             <Link to="/movie">
               <img src={logoMovie} alt="" className={styles.pages} />
