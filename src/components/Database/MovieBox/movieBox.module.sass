@@ -35,10 +35,14 @@
 
 .info
   position: absolute
+  display: flex
+  flex-direction: column
+  padding: 10%
+  width: 80%
   opacity: 0
   z-index: 4
-  top: 3rem
-  left: 3rem
+  top: 0
+  left: 0
   color: #ffffff
   transition: all .3s ease
   font-weight: 700
@@ -77,5 +81,32 @@
     font-size: 1.7rem
 
 .originalName
+  margin-top: 1rem
   color: $color-second
 
+.btn
+  display: block
+  position: relative
+  margin: 50% auto auto
+
+  background-color: $color-accent
+  color: #ffffff
+  font-size: 1.4rem
+  font-weight: 700
+  border-radius: 0.5rem
+  box-shadow: none
+  border: none
+  text-transform: uppercase
+  a
+    display: block
+
+    padding: 1.4rem 4.7rem
+  &:hover
+    cursor: pointer
+    background-color: lighten($color-accent, 15%)
+
+  &:active
+    outline: none
+
+  &:focus
+    outline: none

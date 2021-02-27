@@ -1514,6 +1514,16 @@
   "resolved" "https://registry.npmjs.org/@redux-saga/types/-/types-1.1.0.tgz"
   "version" "1.1.0"
 
+"@reduxjs/toolkit@^1.5.0":
+  "integrity" "sha512-E/FUraRx+8guw9Hlg/Ja8jI/hwCrmIKed8Annt9YsZw3BQp+F24t5I5b2OWR6pkEHY4hn1BgP08FrTZFRKsdaQ=="
+  "resolved" "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.5.0.tgz"
+  "version" "1.5.0"
+  dependencies:
+    "immer" "^8.0.0"
+    "redux" "^4.0.0"
+    "redux-thunk" "^2.3.0"
+    "reselect" "^4.0.0"
+
 "@rollup/plugin-node-resolve@^7.1.1":
   "integrity" "sha512-RxtSL3XmdTAE2byxekYLnx+98kEUOrPHF/KRVjLH+DEIHy6kjIw7YINQzn+NXiH/NTrQLAwYs0GWB+csWygA9Q=="
   "resolved" "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-7.1.3.tgz"
@@ -2656,6 +2666,13 @@
   "integrity" "sha512-5Kgy8Cz6LPC9DJcNb3yjAXTu3XihQgEdnIg50c//zOC/MyLP0Clg+Y8Sh9ZjjnvBrDZU4DgXS9C3T9r4/scGZQ=="
   "resolved" "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.1.tgz"
   "version" "4.1.1"
+
+"axios@^0.21.1":
+  "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
+  "version" "0.21.1"
+  dependencies:
+    "follow-redirects" "^1.10.0"
 
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
@@ -5299,7 +5316,7 @@
     "inherits" "^2.0.3"
     "readable-stream" "^2.3.6"
 
-"follow-redirects@^1.0.0":
+"follow-redirects@^1.0.0", "follow-redirects@^1.10.0":
   "integrity" "sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA=="
   "resolved" "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.2.tgz"
   "version" "1.13.2"
@@ -5928,10 +5945,10 @@
   "resolved" "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz"
   "version" "5.1.8"
 
-"immer@7.0.9":
-  "integrity" "sha512-Vs/gxoM4DqNAYR7pugIxi0Xc8XAun/uy7AQu4fLLqaTBHxjOP9pJ266Q9MWA/ly4z6rAFZbvViOtihxUZ7O28A=="
-  "resolved" "https://registry.yarnpkg.com/immer/-/immer-7.0.9.tgz"
-  "version" "7.0.9"
+"immer@^8.0.0", "immer@8.0.1":
+  "integrity" "sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA=="
+  "resolved" "https://registry.npmjs.org/immer/-/immer-8.0.1.tgz"
+  "version" "8.0.1"
 
 "import-cwd@^2.0.0":
   "integrity" "sha1-qmzzbnInYShcs3HsZRn1PiQ1sKk="
@@ -9336,9 +9353,9 @@
   "version" "1.0.2"
 
 "react-dev-utils@^11.0.2":
-  "integrity" "sha512-xG7GlMoYkrgc2M1kDCHKRywXMDbFnjOB+/VzpytQyYBusEzR8NlGTMmUbvN86k94yyKu5XReHB8eZC2JZrNchQ=="
-  "resolved" "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.2.tgz"
-  "version" "11.0.2"
+  "integrity" "sha512-4lEA5gF4OHrcJLMUV1t+4XbNDiJbsAWCH5Z2uqlTqW6dD7Cf5nEASkeXrCI/Mz83sI2o527oBIFKVMXtRf1Vtg=="
+  "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.3.tgz"
+  "version" "11.0.3"
   dependencies:
     "@babel/code-frame" "7.10.4"
     "address" "1.1.2"
@@ -9353,7 +9370,7 @@
     "global-modules" "2.0.0"
     "globby" "11.0.1"
     "gzip-size" "5.1.1"
-    "immer" "7.0.9"
+    "immer" "8.0.1"
     "is-root" "2.1.0"
     "loader-utils" "2.0.0"
     "open" "^7.0.2"
@@ -9378,6 +9395,13 @@
   "integrity" "sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew=="
   "resolved" "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.9.tgz"
   "version" "6.0.9"
+
+"react-infinite-scroll-component@^6.0.0":
+  "integrity" "sha512-GK/amOgk4J/MLw8Kpp8K6MdDdX5QLJheVSSnhI6c2b6gvMwziCE2m1GDVrMyAyP7gDjgA0YH7pxdIoQya842LQ=="
+  "resolved" "https://registry.npmjs.org/react-infinite-scroll-component/-/react-infinite-scroll-component-6.0.0.tgz"
+  "version" "6.0.0"
+  dependencies:
+    "throttle-debounce" "^2.1.0"
 
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
@@ -9515,7 +9539,7 @@
   optionalDependencies:
     "fsevents" "^2.1.3"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.1", "react@>= 16", "react@>=15", "react@17.0.1":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.1", "react@>= 16", "react@>=15", "react@>=16.0.0", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
@@ -9643,6 +9667,11 @@
   "version" "1.1.3"
   dependencies:
     "@redux-saga/core" "^1.1.3"
+
+"redux-thunk@^2.3.0":
+  "integrity" "sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw=="
+  "resolved" "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.3.0.tgz"
+  "version" "2.3.0"
 
 "redux@^2.0.0 || ^3.0.0 || ^4.0.0-0", "redux@^4.0.0", "redux@^4.0.4", "redux@^4.0.5":
   "integrity" "sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w=="
@@ -9823,6 +9852,11 @@
   "integrity" "sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8="
   "resolved" "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz"
   "version" "1.0.0"
+
+"reselect@^4.0.0":
+  "integrity" "sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA=="
+  "resolved" "https://registry.npmjs.org/reselect/-/reselect-4.0.0.tgz"
+  "version" "4.0.0"
 
 "resolve-cwd@^2.0.0":
   "integrity" "sha1-AKn3OHVW4nA46uIyyqNypqWbZlo="
@@ -11010,6 +11044,11 @@
   "integrity" "sha512-fcwX4mndzpLQKBS1DVYhGAcYaYt7vsHNIvQV+WXMvnow5cgjPphq5CaayLaGsjRdSCKZFNGt7/GYAuXaNOiYCA=="
   "resolved" "https://registry.yarnpkg.com/throat/-/throat-5.0.0.tgz"
   "version" "5.0.0"
+
+"throttle-debounce@^2.1.0":
+  "integrity" "sha512-H7oLPV0P7+jgvrk+6mwwwBDmxTaxnu9HMXmloNLXwnNO0ZxZ31Orah2n8lU1eMPvsaowP2CX+USCgyovXfdOFQ=="
+  "resolved" "https://registry.npmjs.org/throttle-debounce/-/throttle-debounce-2.3.0.tgz"
+  "version" "2.3.0"
 
 "through2@^2.0.0":
   "integrity" "sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ=="

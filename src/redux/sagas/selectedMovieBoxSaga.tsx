@@ -1,17 +1,17 @@
+import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {LOAD_SELECTED_MOVIE, putSelectedMovieAction} from '../actions';
 import {API_KEY, API_START} from '../../common/Api';
+import {putSelectedMovieAction} from '../reducers/selectedMovieReducer';
+
 import {ILoadSelectedMovieAction} from '../../common/Interfaces/Interfaces';
 
 function LoadSelectedMovieBox(value: number) {
-  return fetch(
-    `${API_START}/movie/${value}?api_key=${API_KEY}&append_to_response=credits,release_dates,videos`
-  ).then((response) => {
-    if (response.status === 200) {
-      return response.json();
-    }
-    throw new Error(`${response.status}`);
-  });
+  return axios
+    .get(
+      `${API_START}/movie/${value}?api_key=${API_KEY}&append_to_response=credits,release_dates,videos`
+    )
+    .then((response) => response.data)
+    .catch((error) => error.message);
 }
 
 function* workerLoadSelectedMovieBox(action: ILoadSelectedMovieAction) {
@@ -21,5 +21,5 @@ function* workerLoadSelectedMovieBox(action: ILoadSelectedMovieAction) {
 }
 
 export function* watchLoadSelectedMovieBox() {
-  yield takeEvery(LOAD_SELECTED_MOVIE, workerLoadSelectedMovieBox);
+  yield takeEvery('SELECTED_MOVIE/loadSelectedMovieAction', workerLoadSelectedMovieBox);
 }

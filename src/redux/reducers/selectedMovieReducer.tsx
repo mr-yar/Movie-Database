@@ -1,29 +1,29 @@
-import {PUT_SELECTED_MOVIE, LOAD_SELECTED_MOVIE} from '../actions';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {ISelectedMovieState} from '../../common/Interfaces/Interfaces';
-import {ISelectedMovie} from '../../common/Interfaces/ISelectedMovie';
 
 const initialState: ISelectedMovieState = {
   selectedMovie: {},
+  selectedMovieId: 0,
   loading: false
 };
 
-export function selectedMovieReducer(
-  state = initialState,
-  action: {type: string; payload: ISelectedMovie}
-): any {
-  switch (action.type) {
-    case LOAD_SELECTED_MOVIE:
-      return {
-        ...state,
-        loading: true
-      };
-    case PUT_SELECTED_MOVIE:
-      return {
-        ...state,
-        selectedMovie: action.payload,
-        loading: false
-      };
-    default:
-      return state;
+export const selectedMovieSlice = createSlice({
+  name: 'SELECTED_MOVIE',
+  initialState,
+  reducers: {
+    loadSelectedMovieAction(state, action: PayloadAction<number>) {
+      state.loading = true;
+      state.selectedMovieId = action.payload;
+    },
+    putSelectedMovieAction(state, action: PayloadAction<Record<string, unknown>>) {
+      state.loading = false;
+      state.selectedMovie = action.payload;
+    }
   }
-}
+});
+
+export const {
+  loadSelectedMovieAction,
+  putSelectedMovieAction
+} = selectedMovieSlice.actions;
+export const selectedMovieReducer = selectedMovieSlice.reducer;

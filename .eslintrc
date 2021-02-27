@@ -28,11 +28,7 @@
     "no-unused-vars": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/object-curly-spacing": [
-      "warn",
-      "never",
-      {"objectsInObjects": true}
-    ],
+    "@typescript-eslint/object-curly-spacing": ["warn", "never", {"objectsInObjects": true}],
     "@typescript-eslint/comma-dangle": ["warn", "never"],
     "semi": ["warn", "always"],
     "prefer-const": "warn",
@@ -58,7 +54,7 @@
     "no-new-func": "error",
     // "space-before-function-paren": "warn",
     "space-before-blocks": "warn",
-    "no-param-reassign": "error",
+    "no-param-reassign": "off",
     "prefer-spread": "warn",
     //    "function-call-argument-newline": ["warn", "never"],
     "prefer-arrow-callback": "error",
@@ -103,11 +99,7 @@
     "no-multiple-empty-lines": ["warn", {"max": 2}],
     "space-in-parens": "warn",
     "array-bracket-spacing": "warn",
-    "object-curly-spacing": [
-      "warn",
-      "never",
-      {"objectsInObjects": true}
-    ],
+    "object-curly-spacing": ["warn", "never", {"objectsInObjects": true}],
     "block-spacing": "warn",
     "comma-spacing": "warn",
     "computed-property-spacing": "warn",

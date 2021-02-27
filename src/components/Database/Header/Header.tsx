@@ -1,26 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import {loadSelectedMovieAction} from '../../../redux/actions';
-import {RootState} from '../../../redux/reducers/rootReducer';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../redux/store';
+import {IMovieProps} from '../../../common/Interfaces/Interfaces';
 
 import styles from './header.module.sass';
 
-export function Header(): JSX.Element {
-  const dispatch = useDispatch();
-
-  const movies = useSelector((state: RootState) => state.moviesReducer.movies);
-
-  const selectedMovie = useSelector(
-    (state: RootState) => state.selectedMovieBoxReducer.selectedMovie
-  );
-
-  if (Object.keys(selectedMovie).length === 0) {
-    dispatch(loadSelectedMovieAction(movies[0].id));
-  }
-
+export function Header({movie}: IMovieProps): JSX.Element {
   const isFetchingSelectedMovie = useSelector(
-    (state: RootState) => state.selectedMovieBoxReducer.loading
+    (state: RootState) => state.selectedMovieReducer.loading
   );
 
   if (isFetchingSelectedMovie) {
@@ -42,18 +30,18 @@ export function Header(): JSX.Element {
   }
 
   const creditsDirector: string[] = [];
-  selectedMovie.credits.crew.forEach((item: {job: string; name: string}) => {
+  movie.credits.crew.forEach((item: {job: string; name: string}) => {
     if (item.job === 'Director') {
       creditsDirector.push(item.name);
     }
   });
 
   const creditsGenre: string[] = [];
-  selectedMovie.genres.forEach((item: {name: string}) => {
+  movie.genres.forEach((item: {name: string}) => {
     creditsGenre.push(item.name);
   });
 
-  const bg = {backgroundImage: `url(https://image.tmdb.org/t/p/original/${selectedMovie.backdrop_path})`};
+  const bg = {backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`};
 
   return (
     <header className={styles.header} style={bg}>
@@ -63,7 +51,7 @@ export function Header(): JSX.Element {
             <div className={styles.descr_point}>
               Name:
               {' '}
-              <span>{selectedMovie.title}</span>
+              <span>{movie.title}</span>
             </div>
             <div className={styles.descr_point}>
               Director(&apos;s):
@@ -78,11 +66,9 @@ export function Header(): JSX.Element {
             <div className={styles.descr_point}>
               Year:
               {' '}
-              <span>{selectedMovie.release_date.match(/\b(18|19|20)\d{2}\b/)[0]}</span>
+              <span>{movie.release_date.match(/\b(18|19|20)\d{2}\b/)[0]}</span>
             </div>
-            <div className={`${styles.descr_point} ${styles.tagline}`}>
-              {selectedMovie.tagline}
-            </div>
+            <div className={`${styles.descr_point} ${styles.tagline}`}>{movie.tagline}</div>
           </div>
           <Link to="/movie">
             <button type="button" className={styles.btn}>

@@ -1,30 +1,30 @@
 import {IMovie} from './IMovie';
+import {ISelectedMovie} from './ISelectedMovie';
 
 /* ACTIONS */
-
-export interface ILoadTheLastMoviesAction {
-  type: string;
-}
-export interface IPutTheLastMoviesAction {
-  type: string;
-  payload: IMovie[];
-}
 
 export interface ILoadSelectedMovieAction {
   type: string;
   payload: number;
 }
-export interface IPutSelectedMovieAction {
+
+export interface ISearchMovieAction {
   type: string;
-  payload: Record<string, unknown>;
+  payload: string;
 }
 
-/* State */
+/* STATE */
 export interface IMovieState {
   movies: IMovie[];
+  currentPage: number;
   loading: boolean;
 }
 export interface ISelectedMovieState {
-  selectedMovie: Record<string, unknown>;
+  selectedMovie: ISelectedMovie;
+  selectedMovieId: number;
   loading: boolean;
+}
+
+export interface IMovieProps {
+  movie: any;
 }

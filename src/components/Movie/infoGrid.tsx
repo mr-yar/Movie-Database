@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './movie.module.sass';
 
-export function infoElem(value: string, category?: string): JSX.Element {
+export function infoElem(value: string | string[], category?: string): JSX.Element {
   if (!category) {
     return (
       <div className={styles.gridElem}>

@@ -12,7 +12,11 @@ export function Nav(): JSX.Element {
       <div className="container">
         <div className={styles.nav_wrapper}>
           <div className={styles.logo}>
-            <Link to="/">Movie Database</Link>
+            <Link to="/">
+              Movie
+              {' '}
+              <span>Database</span>
+            </Link>
           </div>
           <div className="menu">
             <Link to="/database">

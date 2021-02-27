@@ -1,11 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import {useDispatch} from 'react-redux';
-import {loadSelectedMovieAction} from '../../../redux/actions';
+import {loadSelectedMovieAction} from '../../../redux/reducers/selectedMovieReducer';
 
 import likeIcon from './icons/like.svg';
 import downloadIcon from './icons/downloads.svg';
 import commentsIcon from './icons/comments.svg';
+import noImg from './icons/no-camera.svg';
 
 import styles from './movieBox.module.sass';
 import {IMovie} from '../../../common/Interfaces/IMovie';
@@ -18,8 +20,20 @@ export function MovieBox({movie}: {movie: IMovie}): JSX.Element {
   }
 
   return (
-    <div className={styles.movieBox} role="button" tabIndex={0} onClick={movieBoxHandler}>
-      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
+    <div
+      className={styles.movieBox}
+      role="button"
+      tabIndex={0}
+      onClick={movieBoxHandler}
+    >
+      <img
+        src={
+          movie.poster_path === null
+            ? noImg
+            : `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        }
+        alt=""
+      />
       <div className={styles.info}>
         <div className={styles.like}>
           <img src={likeIcon} alt="" />
@@ -41,9 +55,15 @@ export function MovieBox({movie}: {movie: IMovie}): JSX.Element {
         </div>
         <div className={styles.originalName}>
           Original name:
-          {movie.original_title}
+          {' '}
+          <span>{movie.original_title}</span>
         </div>
+
+        <button type="button" className={styles.btn}>
+          <Link to="/movie">More</Link>
+        </button>
       </div>
+
       <div className={styles.name}>{movie.title}</div>
     </div>
   );
