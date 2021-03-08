@@ -4,7 +4,7 @@ import {
   putLastMoviesAction,
   putNewLastMoviesAction
 } from '../reducers/moviesReducer';
-import {API_KEY, API_START} from '../../common/Api';
+import {API_KEY, API_START} from '../../common/api';
 
 function loadLastMovies() {
   return axios

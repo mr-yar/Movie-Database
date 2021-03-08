@@ -1,3 +1,46 @@
+export interface IMovie {
+  adult: boolean | null;
+  backdrop_path: string;
+  genre_ids: number[] | [];
+  original_language: string;
+  original_title: string;
+  poster_path: string;
+  id: number;
+  video: boolean | null;
+  vote_average: number | null;
+  vote_count: number | null;
+  overview: string;
+  release_date: string;
+  title: string;
+  popularity: number | null;
+  media_type: string;
+}
+export interface ILoadSelectedMovieAction {
+  type: string;
+  payload: number;
+}
+
+export interface ISearchMovieAction {
+  type: string;
+  payload: string;
+}
+
+/* STATE */
+export interface IMovieState {
+  movies: IMovie[];
+  currentPage: number;
+  loading: boolean;
+}
+export interface ISelectedMovieState {
+  selectedMovie: ISelectedMovie;
+  selectedMovieId: number;
+  loading: boolean;
+}
+
+export interface IMovieProps {
+  movie: any;
+}
+
 export interface ISelectedMovie {
   adult?: boolean;
   backdrop_path?: string;

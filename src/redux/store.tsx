@@ -1,23 +1,23 @@
 import {configureStore} from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import logger from 'redux-logger';
 import {rootWatcher} from './sagas/rootSaga';
 import {moviesReducer} from './reducers/moviesReducer';
 import {selectedMovieReducer} from './reducers/selectedMovieReducer';
 import {searchReducer} from './reducers/searchReducer';
+import {themeModeReducer} from './reducers/themeModeReducer';
 
-const persistedState = sessionStorage.getItem('selectedMovie')
-  ? JSON.parse(localStorage.getItem('selectedMovie') as string)
-  : {};
+// const preloadedState = sessionStorage.getItem('selectedMovie')
+//   ? JSON.parse(localStorage.getItem('selectedMovie') as string)
+//   : {};
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middlewares = [logger, sagaMiddleware];
+const middleware = [sagaMiddleware];
 
 export const store = configureStore({
-  reducer: {moviesReducer, selectedMovieReducer, searchReducer},
-  // preloadedState: persistedState,
-  middleware: middlewares,
+  reducer: {moviesReducer, selectedMovieReducer, searchReducer, themeModeReducer},
+  // preloadedState,
+  middleware,
   devTools: process.env.NODE_ENV !== 'production'
 });
 

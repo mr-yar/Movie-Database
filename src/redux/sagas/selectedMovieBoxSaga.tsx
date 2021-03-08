@@ -1,9 +1,9 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {API_KEY, API_START} from '../../common/Api';
+import {API_KEY, API_START} from '../../common/api';
 import {putSelectedMovieAction} from '../reducers/selectedMovieReducer';
+import {ILoadSelectedMovieAction} from '../../common/types';
 
-import {ILoadSelectedMovieAction} from '../../common/Interfaces/Interfaces';
 
 function LoadSelectedMovieBox(value: number) {
   return axios

@@ -5,8 +5,8 @@ import ISO6391 from 'iso-639-1';
 import {RootState} from '../../redux/store';
 import {infoElem} from './infoGrid';
 import {Loader} from '../Loader/Loader';
+import {IMovieProps} from '../../common/types';
 import styles from './movie.module.sass';
-import {IMovieProps} from '../../common/Interfaces/Interfaces';
 
 export function Movie({movie}: IMovieProps): JSX.Element {
   const isFetchingSelectedMovie = useSelector(
@@ -168,7 +168,6 @@ url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`
               {infoElem(setCrew('Director'))}
               {infoElem(setCrew('Director of Photography'))}
               {infoElem(setCrew('Original Music Composer'))}
-
               {infoElem(setCurrency(movie.budget), 'Budget')}
               {infoElem(setCurrency(movie.revenue), 'Revenue ')}
               {infoElem(

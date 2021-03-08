@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {ISelectedMovieState} from '../../common/Interfaces/Interfaces';
+import {ISelectedMovieState} from '../../common/types';
 
 const initialState: ISelectedMovieState = {
   selectedMovie: {},

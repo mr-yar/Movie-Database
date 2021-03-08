@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {IMovie} from '../../common/Interfaces/IMovie';
+
 
 const initialState = {inputValue: '', searchedMovies: [], loading: false};
 

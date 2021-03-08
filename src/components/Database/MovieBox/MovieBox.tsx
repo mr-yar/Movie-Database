@@ -1,16 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
 import {useDispatch} from 'react-redux';
 import {loadSelectedMovieAction} from '../../../redux/reducers/selectedMovieReducer';
-
+import {IMovie} from '../../../common/types';
 import likeIcon from './icons/like.svg';
 import downloadIcon from './icons/downloads.svg';
 import commentsIcon from './icons/comments.svg';
 import noImg from './icons/no-camera.svg';
-
 import styles from './movieBox.module.sass';
-import {IMovie} from '../../../common/Interfaces/IMovie';
 
 export function MovieBox({movie}: {movie: IMovie}): JSX.Element {
   const dispatch = useDispatch();

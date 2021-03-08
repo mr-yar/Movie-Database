@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../../redux/store';
-import {IMovie} from '../../../common/Interfaces/IMovie';
 import {MovieBox} from '../MovieBox/MovieBox';
+import {IMovie} from '../../../common/types';
 import styles from './movies.module.sass';
 
 export function SearchMovies(): JSX.Element {
@@ -11,8 +11,17 @@ export function SearchMovies(): JSX.Element {
   );
   if (movies.length === 0) {
     return (
-      <div>
-        <h1>Enter title...</h1>
+      <div className={styles.movies}>
+        <h1
+          style={{
+            fontFamily: 'Roboto, sans-serif',
+            textAlign: 'center',
+            margin: '0',
+            padding: '2rem'
+          }}
+        >
+          Enter title...
+        </h1>
       </div>
     );
   }

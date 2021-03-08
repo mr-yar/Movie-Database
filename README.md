@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Movie Database
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To see demo: https://movie-searcher-8e6c1.web.app/
 
-## Available Scripts
+## Application features
 
-In the project directory, you can run:
+##### - By default, app gives a list of relevant movies with endless loading
 
-### `yarn start`
+##### - The header shows the main information about the selected movie
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### - Clicking on the "More" button opens a page with detailed information
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Planned features
 
-### `yarn test`
+##### - Adding a backend for the ability to create personal movie collections
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### - Implementation styled-components
 
-### `yarn build`
+##### - Choice of night mode and color scheme
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### - Full lazy-loading
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to install?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Open terminal and clone the repo: `git clone https://github.com/mr-yar/Movie-Database`
+2. Go to the downloaded repository: `cd Movie-Database` and install
+   packages: `npm i`
+3. Build project, start server and launch: `npm start`
+4. Open your browser at: `http://localhost:3000`
 
-### `yarn eject`
+## Used tools
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+|                                                     Tool                                                      | Description                                       |
+| :-----------------------------------------------------------------------------------------------------------: | ------------------------------------------------- |
+|                                         [React](https://reactjs.org/)                                         | A JavaScript library for building user interfaces |
+| [Redux](https://redux.js.org/) ([Saga](https://redux-saga.js.org/), [Toolkit](https://redux-toolkit.js.org/)) | A Predictable State Container for React           |
+|                                      [Router](https://reactrouter.com/)                                       | Declarative routing for React                     |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Author
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Nikita Yaremenko](https://github.com/mr-yar)

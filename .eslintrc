@@ -28,7 +28,11 @@
     "no-unused-vars": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/object-curly-spacing": ["warn", "never", {"objectsInObjects": true}],
+    "@typescript-eslint/object-curly-spacing": [
+      "warn",
+      "never",
+      {"objectsInObjects": true}
+    ],
     "@typescript-eslint/comma-dangle": ["warn", "never"],
     "semi": ["warn", "always"],
     "prefer-const": "warn",
@@ -113,10 +117,12 @@
     "radix": ["warn", "always"],
     "new-cap": "warn",
     "react/jsx-one-expression-per-line": "warn",
+    "react/self-closing-comp": "warn",
     "no-debugger": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
     "require-yield": "warn",
-    "react/jsx-indent": "warn"
+    "react/jsx-indent": "warn",
+    "react/jsx-curly-brace-presence": "warn"
   }
 }

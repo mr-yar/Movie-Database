@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {API_KEY, API_START} from '../../common/Api';
+import {API_KEY, API_START} from '../../common/api';
 import {putSearchedMovieAction} from '../reducers/searchReducer';
-import {ISearchMovieAction} from '../../common/Interfaces/Interfaces';
+import {ISearchMovieAction} from '../../common/types';
 
 function loadSearcher(value: string) {
   return axios

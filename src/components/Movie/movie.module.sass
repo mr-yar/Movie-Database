@@ -27,6 +27,7 @@
   position: relative
   margin-right: 10rem
   text-align: center
+  font-family: Roboto, sans-serif
   img
     width: 70%
 .info
@@ -35,7 +36,6 @@
   color: #ffffff
 .title
   margin: 0
-
   font-family: Staatliches, sans-serif
   font-size: 4.2rem
   letter-spacing: .2rem
@@ -59,6 +59,7 @@
 
 
 .userScore
+
   display: flex
   align-items: center
 
@@ -138,6 +139,7 @@
       background-color: #ffffff
 
 .cast
+
   &_title
     text-align: center
     font-size: 3.6rem
@@ -156,3 +158,67 @@
       color: $color-second
       font-weight: 400
       font-style: italic
+
+@media screen and (max-width: 1400px)
+
+@media screen and (max-width: 1200px)
+
+@media screen and (max-width: 992px)
+  .movie
+    padding-top: 8rem
+    padding-bottom: 8rem
+    min-height: 80vh
+  .subtitle
+    justify-content: center
+    align-items: center
+  .posterAndCast
+    display: none
+  .info
+    text-align: center
+    flex-basis: 90%
+  .userScore
+    display: none
+  .movie_wrapper
+    justify-content: center
+@media screen and (max-width: 768px)
+
+@media screen and (max-width: 576px)
+  .movie
+    padding-top: 4rem
+    padding-bottom: 4rem
+  .title
+    font-size: 3.2rem
+    margin-bottom: 2rem
+  .subtitle
+    font-size: 1.6rem
+  .btn
+    font-size: 4rem
+    padding-top: 6rem
+  .infoGrid
+    grid-template-columns: 1fr
+    grid-row-gap: 1rem
+    padding-top: 5rem
+
+
+  .gridElem
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    &_value
+      font-size: 2rem
+      order: 2
+    &_category
+      position: relative
+      font-size: 2rem
+      margin-right: 1rem
+      padding: 0
+      order: 1
+      &::after
+        position: absolute
+        content: ': '
+        top: 0
+        right: -.4rem
+        color: #fff
+
+
+

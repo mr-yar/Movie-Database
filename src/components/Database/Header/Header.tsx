@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../../redux/store';
-import {IMovieProps} from '../../../common/Interfaces/Interfaces';
-
+import {IMovieProps} from '../../../common/types';
 import styles from './header.module.sass';
 
 export function Header({movie}: IMovieProps): JSX.Element {
@@ -68,13 +67,14 @@ export function Header({movie}: IMovieProps): JSX.Element {
               {' '}
               <span>{movie.release_date.match(/\b(18|19|20)\d{2}\b/)[0]}</span>
             </div>
-            <div className={`${styles.descr_point} ${styles.tagline}`}>{movie.tagline}</div>
+            <div className={`${styles.descr_point} ${styles.tagline}`}>
+              {movie.tagline}
+            </div>
           </div>
-          <Link to="/movie">
-            <button type="button" className={styles.btn}>
-              More
-            </button>
-          </Link>
+
+          <button type="button" className={styles.btn}>
+            <Link to="/movie">More</Link>
+          </button>
         </div>
       </div>
     </header>

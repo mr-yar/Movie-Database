@@ -1,9 +1,8 @@
 import React, {KeyboardEvent, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import loupe from './icons/loupe.svg';
 import {searchMovieAction} from '../../../redux/reducers/searchReducer';
-
+import loupe from './icons/loupe.svg';
 import styles from './searcher.module.sass';
 
 export function Searcher(): JSX.Element {
@@ -42,6 +41,7 @@ export function Searcher(): JSX.Element {
               name="input"
               className={styles.input}
               placeholder="Search..."
+              autoComplete="off"
               onChange={(event) => setInputState(event.target.value)}
               onKeyPress={(event) => handleEnterDown(event)}
             />
