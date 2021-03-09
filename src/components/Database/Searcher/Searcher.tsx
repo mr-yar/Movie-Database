@@ -1,19 +1,22 @@
 import React, {KeyboardEvent, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {searchMovieAction} from '../../../redux/reducers/searchReducer';
-import loupe from './icons/loupe.svg';
 import styles from './searcher.module.sass';
 
 export function Searcher(): JSX.Element {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [inputState, setInputState] = useState('');
+  const [activeSection, setActiveSection] = useState(1);
   const isInputEmpty = inputState.trim() === '';
 
   const handleEnterDown = (event: KeyboardEvent) => {
     if (event.key === 'Enter' && !isInputEmpty) {
       dispatch(searchMovieAction(inputState));
+      setActiveSection(2);
+      history.push('/database/selectedmovie');
     }
   };
 
@@ -23,15 +26,29 @@ export function Searcher(): JSX.Element {
         <div className={styles.searcher_wrapper}>
           <h1 className={styles.title}>Featured movies</h1>
           <div className={styles.menu}>
-            <Link to="/database/">
-              <span className={`${styles.section} ${styles.active}`}>
+            <Link to="/database/" onClick={() => setActiveSection(1)}>
+              <span
+                className={
+                  activeSection === 1
+                    ? `${styles.section} ${styles.active}`
+                    : styles.section
+                }
+              >
                 New Realised
               </span>
             </Link>
             <span className={styles.section}>/</span>
             {' '}
-            <Link to="/database/selectedmovie">
-              <span className={styles.section}>Trailers & Clips</span>
+            <Link to="/database/selectedmovie" onClick={() => setActiveSection(2)}>
+              <span
+                className={
+                  activeSection === 2
+                    ? `${styles.section} ${styles.active}`
+                    : styles.section
+                }
+              >
+                Search movies
+              </span>
             </Link>
           </div>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -45,7 +62,6 @@ export function Searcher(): JSX.Element {
               onChange={(event) => setInputState(event.target.value)}
               onKeyPress={(event) => handleEnterDown(event)}
             />
-            <img src={loupe} alt="" className={styles.searcher_img} />
           </div>
         </div>
       </div>

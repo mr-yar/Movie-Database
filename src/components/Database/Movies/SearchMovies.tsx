@@ -9,6 +9,7 @@ export function SearchMovies(): JSX.Element {
   const movies = useSelector(
     (state: RootState) => state.searchReducer.searchedMovies
   );
+
   if (movies.length === 0) {
     return (
       <div className={styles.movies}>
@@ -20,7 +21,7 @@ export function SearchMovies(): JSX.Element {
             padding: '2rem'
           }}
         >
-          Enter title...
+          Movie not found. Please enter other
         </h1>
       </div>
     );

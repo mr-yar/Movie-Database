@@ -12,7 +12,7 @@ To see demo: https://movie-searcher-8e6c1.web.app/
 
 #### Planned features
 
-##### - Adding a backend for the ability to create personal movie collections
+##### - Adding backend for the ability to create personal movie collections
 
 ##### - Implementation styled-components
 

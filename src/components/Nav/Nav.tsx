@@ -42,7 +42,6 @@ export function Nav(): JSX.Element {
           {/*  checkedIcon={<Moon />} */}
           {/*  width={70} */}
           {/*  height={35} */}
-          5
           {/* /> */}
           <div className={styles.avatar}>John Doe</div>
         </div>
