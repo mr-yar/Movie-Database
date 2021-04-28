@@ -9,8 +9,10 @@ export function Loader(): JSX.Element {
     height: '100vh'
   };
   return (
-    <div style={styles}>
-      <LoaderSvg />
+    <div>
+      <div style={styles}>
+        <LoaderSvg />
+      </div>
     </div>
   );
 }

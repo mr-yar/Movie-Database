@@ -38,7 +38,7 @@ export interface ISelectedMovieState {
 }
 
 export interface IMovieProps {
-  movie: any;
+  movie: IMovie;
 }
 
 export interface ISelectedMovie {
@@ -49,7 +49,6 @@ export interface ISelectedMovie {
   genres?: Genre[];
   homepage?: string;
   id?: number;
-  imdb_id?: string;
   original_language?: string;
   original_title?: string;
   overview?: string;
@@ -114,7 +113,11 @@ export interface Cast {
   credit_id?: string;
   order?: number;
 }
-
+export interface MovieCast {
+  id: number;
+  name: string;
+  role: string;
+}
 export interface Crew {
   adult?: boolean;
   gender?: number;

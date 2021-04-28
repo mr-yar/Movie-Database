@@ -5,7 +5,7 @@ import ISO6391 from 'iso-639-1';
 import {RootState} from '../../redux/store';
 import {infoElem} from './infoGrid';
 import {Loader} from '../Loader/Loader';
-import {IMovieProps} from '../../common/types';
+import {IMovieProps, MovieCast} from '../../common/types';
 import styles from './movie.module.sass';
 
 export function Movie({movie}: IMovieProps): JSX.Element {
@@ -64,7 +64,7 @@ export function Movie({movie}: IMovieProps): JSX.Element {
   }
 
   function setCast(n: number) {
-    const cast: any = [];
+    const cast: MovieCast[] = [];
     for (let i = 0; i < n; i += 1) {
       if (!movie.credits.cast[i]) break;
       cast.push({
@@ -77,7 +77,7 @@ export function Movie({movie}: IMovieProps): JSX.Element {
     return (
       <>
         <div className={styles.cast_title}>CAST:</div>
-        {cast.map((elem: {id: number; name: string; role: string}) => (
+        {cast.map((elem) => (
           <div className={styles.cast_elem} key={elem.id}>
             {cast[elem.id].name}
             {' '}

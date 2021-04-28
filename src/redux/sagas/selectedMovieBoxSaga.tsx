@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {API_KEY, API_START} from '../../common/api';
+import {API_KEY, API_BASE_URL} from '../../services/api';
 import {putSelectedMovieAction} from '../reducers/selectedMovieReducer';
 import {ILoadSelectedMovieAction} from '../../common/types';
 
@@ -8,7 +8,7 @@ import {ILoadSelectedMovieAction} from '../../common/types';
 function LoadSelectedMovieBox(value: number) {
   return axios
     .get(
-      `${API_START}/movie/${value}?api_key=${API_KEY}&append_to_response=credits,release_dates,videos`
+      `${API_BASE_URL}/movie/${value}?api_key=${API_KEY}&append_to_response=credits,release_dates,videos`
     )
     .then((response) => response.data)
     .catch((error) => error.message);

@@ -1,7 +1,7 @@
 import React, {KeyboardEvent, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {searchMovieAction} from '../../../redux/reducers/searchReducer';
+import {searchMovieAction} from '../../redux/reducers/searchReducer';
 import styles from './searcher.module.sass';
 
 export function Searcher(): JSX.Element {

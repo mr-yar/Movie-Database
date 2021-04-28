@@ -1,7 +1,11 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {IMovie} from '../../common/types';
 
-
-const initialState = {inputValue: '', searchedMovies: [], loading: false};
+const initialState = {
+  inputValue: '',
+  searchedMovies: [] as IMovie[],
+  loading: false
+};
 
 export const searchSlice = createSlice({
   name: 'SEARCH',
@@ -11,7 +15,7 @@ export const searchSlice = createSlice({
       state.loading = true;
       state.inputValue = action.payload;
     },
-    putSearchedMovieAction(state, action: PayloadAction<any>) {
+    putSearchedMovieAction(state, action: PayloadAction<IMovie[]>) {
       state.loading = false;
       state.searchedMovies = action.payload;
     }

@@ -6,9 +6,9 @@ import {selectedMovieReducer} from './reducers/selectedMovieReducer';
 import {searchReducer} from './reducers/searchReducer';
 import {themeModeReducer} from './reducers/themeModeReducer';
 
-// const preloadedState = sessionStorage.getItem('selectedMovie')
-//   ? JSON.parse(localStorage.getItem('selectedMovie') as string)
-//   : {};
+const preloadedState = localStorage.getItem('selectedMovie')
+  ? JSON.parse(localStorage.getItem('selectedMovie') as string)
+  : {};
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,15 +16,15 @@ const middleware = [sagaMiddleware];
 
 export const store = configureStore({
   reducer: {moviesReducer, selectedMovieReducer, searchReducer, themeModeReducer},
-  // preloadedState,
+  preloadedState,
   middleware,
   devTools: process.env.NODE_ENV !== 'production'
 });
 
 sagaMiddleware.run(rootWatcher);
 
-// store.subscribe(() => {
-//   sessionStorage.setItem('selectedMovie', JSON.stringify(store.getState()));
-// });
+store.subscribe(() => {
+  localStorage.setItem('selectedMovie', JSON.stringify(store.getState()));
+});
 
 export type RootState = ReturnType<typeof store.getState>;

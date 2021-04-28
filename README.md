@@ -1,4 +1,4 @@
-# Movie Database
+# SelectedMovie Database
 
 To see demo: https://movie-searcher-8e6c1.web.app/
 
@@ -22,8 +22,8 @@ To see demo: https://movie-searcher-8e6c1.web.app/
 
 ## How to install?
 
-1. Open terminal and clone the repo: `git clone https://github.com/mr-yar/Movie-Database`
-2. Go to the downloaded repository: `cd Movie-Database` and install
+1. Open terminal and clone the repo: `git clone https://github.com/mr-yar/SelectedMovie-Database`
+2. Go to the downloaded repository: `cd SelectedMovie-Database` and install
    packages: `npm i`
 3. Build project, start server and launch: `npm start`
 4. Open your browser at: `http://localhost:3000`

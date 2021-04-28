@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../../redux/store';
+import {RootState} from '../../redux/store';
 import {MovieBox} from '../MovieBox/MovieBox';
-import {IMovie} from '../../../common/types';
+import {IMovie} from '../../common/types';
 import styles from './movies.module.sass';
 
 export function SearchMovies(): JSX.Element {

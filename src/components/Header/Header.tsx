@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../../redux/store';
-import {IMovieProps} from '../../../common/types';
+import {RootState} from '../../redux/store';
+import {IMovieProps} from '../../common/types';
 import styles from './header.module.sass';
 
 export function Header({movie}: IMovieProps): JSX.Element {
@@ -10,7 +10,7 @@ export function Header({movie}: IMovieProps): JSX.Element {
     (state: RootState) => state.selectedMovieReducer.loading
   );
 
-  if (isFetchingSelectedMovie) {
+  if (isFetchingSelectedMovie || movie.id === undefined) {
     return (
       <header className={styles.header}>
         <div className="container">

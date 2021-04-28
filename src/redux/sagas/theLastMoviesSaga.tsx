@@ -4,11 +4,11 @@ import {
   putLastMoviesAction,
   putNewLastMoviesAction
 } from '../reducers/moviesReducer';
-import {API_KEY, API_START} from '../../common/api';
+import {API_KEY, API_BASE_URL} from '../../services/api';
 
 function loadLastMovies() {
   return axios
-    .get(`${API_START}/trending/movie/week?api_key=${API_KEY}`)
+    .get(`${API_BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
     .then((response) => response.data)
     .then((res) => res.results);
 }
@@ -20,7 +20,7 @@ function* workerLoadLastMovies() {
 
 function loadNewLastMovies(page: number) {
   return axios
-    .get(`${API_START}/trending/movie/week?api_key=${API_KEY}&page=${page}`)
+    .get(`${API_BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`)
     .then((response) => response.data)
     .then((res) => res.results);
 }

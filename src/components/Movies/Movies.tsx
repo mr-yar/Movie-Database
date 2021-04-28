@@ -1,10 +1,10 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../../../redux/store';
-import {loadNewLastMoviesAction} from '../../../redux/reducers/moviesReducer';
+import {RootState} from '../../redux/store';
+import {loadNewLastMoviesAction} from '../../redux/reducers/moviesReducer';
 import {MovieBox} from '../MovieBox/MovieBox';
-import {IMovie} from '../../../common/types';
+import {IMovie} from '../../common/types';
 import styles from './movies.module.sass';
 
 export function Movies(): JSX.Element {

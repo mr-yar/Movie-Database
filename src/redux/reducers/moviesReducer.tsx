@@ -34,4 +34,5 @@ export const {
   loadNewLastMoviesAction,
   putNewLastMoviesAction
 } = moviesSlice.actions;
+
 export const moviesReducer = moviesSlice.reducer;
