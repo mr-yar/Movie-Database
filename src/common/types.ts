@@ -38,7 +38,7 @@ export interface ISelectedMovieState {
 }
 
 export interface IMovieProps {
-  movie: IMovie;
+  movie: any;
 }
 
 export interface ISelectedMovie {
