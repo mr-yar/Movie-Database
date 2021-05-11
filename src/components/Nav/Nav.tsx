@@ -2,11 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Switch from 'react-switch';
 import {Link, useRouteMatch} from 'react-router-dom';
-import {RootState} from '../../redux/store';
-import {
-  darkModeOffAction,
-  darkModeOnAction
-} from '../../redux/modules/themeModeReducer';
+import {RootState} from '../../store';
 import {Container} from '../../common/common.styles';
 import {ListMovies} from '../../common/Icons/ListMovies';
 import {Clapperboard} from '../../common/Icons/Clapperboard';
@@ -20,6 +16,10 @@ import {
   StyledNav,
   Username
 } from './Nav.styles';
+import {
+  darkModeOffAction,
+  darkModeOnAction
+} from '../../store/modules/themeMode/actions';
 
 export function Nav(): JSX.Element {
   const dispatch = useDispatch();

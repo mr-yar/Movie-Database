@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import ProgressBar from 'react-customizable-progressbar';
-import {RootState} from '../../redux/store';
+import {RootState} from '../../store';
 import {GridElem} from '../GridElem/GridElem';
 import {Loader} from '../Loader/Loader';
 import {setCurrency, timeConvert} from '../../services/utils';

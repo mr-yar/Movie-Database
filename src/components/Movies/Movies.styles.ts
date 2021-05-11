@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledMovies = styled.div`
   background: #edeff0;
   font-family: Roboto, sans-serif;
-  min-height: 40vh;
+  min-height: 50vh;
 `;
 
 export const MoviesWrapper = styled.div`

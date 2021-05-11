@@ -41,7 +41,6 @@ export interface ISearchMovieAction {
 export type TMovieState = {
   movies: TMovie[];
   currentPage: number;
-  moviesID: number[];
   loading: boolean;
 };
 
@@ -79,33 +78,33 @@ export interface IMovieProps {
 }
 
 export type TFetchedSelectedMovie = {
-  adult?: boolean;
-  backdrop_path?: string;
-  belongs_to_collection?: null | string;
-  budget?: number;
-  genres?: TFetchedGenre[];
-  homepage?: string;
-  id?: number;
-  original_language?: string;
-  original_title?: string;
-  overview?: string;
-  popularity?: number;
-  poster_path?: string;
-  production_companies?: TFetchedProductionCompany[];
-  production_countries?: TFetchedProductionCountry[];
-  release_date?: string;
-  revenue?: number;
-  runtime?: number;
-  spoken_languages?: TFetchedSpokenLanguage[];
-  status?: string;
-  tagline?: string;
-  title?: string;
-  video?: boolean;
-  vote_average?: number;
-  vote_count?: number;
-  credits?: TFetchedCredits;
-  release_dates?: TFetchedReleaseDates;
-  videos?: TFetchedVideos;
+  adult: boolean;
+  backdrop_path: string;
+  belongs_to_collection: null | string;
+  budget: number;
+  genres: TFetchedGenre[];
+  homepage: string;
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  production_companies: TFetchedProductionCompany[];
+  production_countries: TFetchedProductionCountry[];
+  release_date: string;
+  revenue: number;
+  runtime: number;
+  spoken_languages: TFetchedSpokenLanguage[];
+  status: string;
+  tagline: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+  credits: TFetchedCredits;
+  release_dates: TFetchedReleaseDates;
+  videos: TFetchedVideos;
 };
 
 export type IconProps = {size?: string; isActive?: boolean};
@@ -134,8 +133,8 @@ export interface TFetchedSpokenLanguage {
 }
 
 export interface TFetchedCredits {
-  cast?: TFetchedCast[];
-  crew?: TFetchedCrew[];
+  cast: TFetchedCast[];
+  crew: TFetchedCrew[];
 }
 
 export interface TFetchedCast {
@@ -152,44 +151,44 @@ export interface TFetchedCrew {
   adult?: boolean;
   gender?: number;
   id?: number;
-  known_for_department?: string;
-  name?: string;
+  known_for_department: string;
+  name: string;
   original_name?: string;
   popularity?: number;
   profile_path?: string;
   credit_id?: string;
   department?: string;
-  job?: string;
+  job: string;
 }
 
 export interface TFetchedReleaseDates {
-  results?: TFetchedResult[];
+  results: TFetchedResult[];
 }
 
 export interface TFetchedResult {
-  iso_3166_1?: string;
-  release_dates?: TFetchedReleaseDate[];
+  iso_3166_1: string;
+  release_dates: TFetchedReleaseDate[];
 }
 
 export interface TFetchedReleaseDate {
-  certification?: string;
-  iso_639_1?: string;
+  certification: string;
+  iso_639_1: string;
   note?: string;
   release_date?: string;
   type?: number;
 }
 
 export interface TFetchedVideos {
-  results?: TFetchedResult2[];
+  results: TFetchedResult2[];
 }
 
 export interface TFetchedResult2 {
   id?: string;
   iso_639_1?: string;
   iso_3166_1?: string;
-  key?: string;
-  name?: string;
-  site?: string;
+  key: string;
+  name: string;
+  site: string;
   size?: number;
   type?: string;
 }

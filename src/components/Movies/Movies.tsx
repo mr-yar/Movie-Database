@@ -2,11 +2,11 @@ import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {useDispatch, useSelector} from 'react-redux';
 import {MovieBox} from '../MovieBox/MovieBox';
-import {RootState} from '../../redux/store';
-import {loadNewLastMoviesAction} from '../../redux/modules/movies/moviesSlice';
+import {RootState} from '../../store';
 import {TMovie} from '../../common/types';
 import {Container} from '../../common/common.styles';
 import {MoviesWrapper, StyledMovies} from './Movies.styles';
+import {loadNewLastMoviesAction} from '../../store/modules/movies/actions';
 
 export function Movies(): JSX.Element {
   const dispatch = useDispatch();
@@ -24,6 +24,16 @@ export function Movies(): JSX.Element {
   function fetchData() {
     dispatch(loadNewLastMoviesAction(currentPage + 1));
   }
+
+  // return (
+  //   <InfiniteLoader
+  //     loadMoreItems={fetchData}
+  //     itemCount={10}
+  //     isItemLoaded={false}
+  //   >
+  //     <MoviesWrapper>{movieBoxes}</MoviesWrapper>
+  //   </InfiniteLoader>
+  // );
 
   return (
     <StyledMovies>

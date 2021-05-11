@@ -10,13 +10,10 @@ html {
   font-size: 62.5%;
   color: ${(props) => props.theme.color.main};
 }
-html.dark {
+html{
   color: #ffffff;
 }
-.container {
-  width: 90vw;
-  margin: auto;
-}
+
 a {
   color: #ffffff;
   text-decoration: none;

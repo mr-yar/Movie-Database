@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {API_KEY, API_BASE_URL} from '../../../services/api';
-import {putSearchedMovieAction} from './searchReducer';
+import {putSearchedMovieAction} from './actions';
 import {ISearchMovieAction} from '../../../common/types';
 
 function loadSearcher(value: string) {
@@ -10,7 +10,6 @@ function loadSearcher(value: string) {
     .then((response) => response.data)
     .then((res) => res.results);
 }
-
 
 function* workerSearcher(action: ISearchMovieAction): any {
   const data = yield call(loadSearcher, action.payload);

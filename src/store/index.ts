@@ -1,10 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import {rootWatcher} from './rootSaga';
-import {moviesReducer} from './modules/movies/moviesSlice';
-import {selectedMovieReducer} from './modules/selectedMovie/selectedMovieSlice';
-import {searchReducer} from './modules/search/searchReducer';
-import {themeModeReducer} from './modules/themeModeReducer';
+import {moviesReducer} from './modules/movies/reducer';
+import {selectedMovieReducer} from './modules/selectedMovie/reducer';
+import {searchReducer} from './modules/search/reducer';
+import {themeModeReducer} from './modules/themeMode/reducer';
 
 const preloadedState = localStorage.getItem('selectedMovie')
   ? JSON.parse(localStorage.getItem('selectedMovie') as string)

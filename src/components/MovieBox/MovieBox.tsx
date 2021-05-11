@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {loadSelectedMovieAction} from '../../redux/modules/selectedMovie/selectedMovieSlice';
 import {TMovie} from '../../common/types';
 import {Views} from '../../common/Icons/Views';
 import {Rating} from '../../common/Icons/Rating';
@@ -16,6 +15,7 @@ import {
   ReleaseDate,
   StyledMovieBox
 } from './MovieBox.styles';
+import {loadSelectedMovieAction} from '../../store/modules/selectedMovie/actions';
 
 export function MovieBox({movie}: {movie: TMovie}): JSX.Element {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ export function MovieBox({movie}: {movie: TMovie}): JSX.Element {
   function movieBoxHandler() {
     dispatch(loadSelectedMovieAction(movie.id));
   }
+
 
   return (
     <StyledMovieBox role="button" tabIndex={0} onClick={movieBoxHandler}>

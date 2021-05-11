@@ -1,10 +1,7 @@
 import axios from 'axios';
 import {takeEvery, call, put} from 'redux-saga/effects';
-import {
-  putLastMoviesAction,
-  putNewLastMoviesAction
-} from './moviesSlice';
 import {API_KEY, API_BASE_URL} from '../../../services/api';
+import {putLastMoviesAction, putNewLastMoviesAction} from './actions';
 
 function loadLastMovies() {
   return axios

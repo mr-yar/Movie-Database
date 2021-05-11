@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../redux/store';
+import {RootState} from '../../store';
 import {TSelectedMovie} from '../../common/types';
 import {Button, Container} from '../../common/common.styles';
 import {
