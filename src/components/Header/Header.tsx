@@ -2,81 +2,74 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
-import {IMovieProps} from '../../common/types';
-import styles from './header.module.sass';
+import {TSelectedMovie} from '../../common/types';
+import {Button, Container} from '../../common/common.styles';
+import {
+  HeaderWrapper,
+  InfoSection,
+  Paragraph,
+  StyledHeader
+} from './Header.style';
 
-export function Header({movie}: IMovieProps): JSX.Element {
+export function Header({movie}: {movie: TSelectedMovie}): JSX.Element {
   const isFetchingSelectedMovie = useSelector(
     (state: RootState) => state.selectedMovieReducer.loading
   );
 
-  if (isFetchingSelectedMovie || movie.id === undefined) {
+  const {crew, backdropPath, genres, id, releaseDate, tagline, title} = movie;
+
+  const [year] = releaseDate.split('-');
+
+  if (isFetchingSelectedMovie || !id) {
     return (
-      <header className={styles.header}>
-        <div className="container">
-          <div className={styles.header_wrapper}>
-            <div className={styles.info}>
-              <div className={styles.descr_point}>Name:</div>
-              <div className={styles.descr_point}>Director(&apos;s):</div>
-              <div className={styles.descr_point}>Genre:</div>
-              <div className={styles.descr_point}>Year:</div>
-              <div className={`${styles.descr_point} ${styles.tagline}`} />
-            </div>
-          </div>
-        </div>
-      </header>
+      <StyledHeader>
+        <Container>
+          <HeaderWrapper>
+            <InfoSection>
+              <Paragraph>Name:</Paragraph>
+              <Paragraph>Director(&apos;s):</Paragraph>
+              <Paragraph>Genre:</Paragraph>
+              <Paragraph>Year:</Paragraph>
+            </InfoSection>
+          </HeaderWrapper>
+        </Container>
+      </StyledHeader>
     );
   }
 
-  const creditsDirector: string[] = [];
-  movie.credits.crew.forEach((item: {job: string; name: string}) => {
-    if (item.job === 'Director') {
-      creditsDirector.push(item.name);
-    }
-  });
-
-  const creditsGenre: string[] = [];
-  movie.genres.forEach((item: {name: string}) => {
-    creditsGenre.push(item.name);
-  });
-
-  const bg = {backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`};
-
   return (
-    <header className={styles.header} style={bg}>
-      <div className="container">
-        <div className={styles.header_wrapper}>
-          <div className={styles.info}>
-            <div className={styles.descr_point}>
+    <StyledHeader bg={backdropPath}>
+      <Container>
+        <HeaderWrapper>
+          <InfoSection>
+            <Paragraph>
               Name:
               {' '}
-              <span>{movie.title}</span>
-            </div>
-            <div className={styles.descr_point}>
+              <span>{title}</span>
+            </Paragraph>
+            <Paragraph>
               Director(&apos;s):
               {' '}
-              <span>{creditsDirector.join(', ')}</span>
-            </div>
-            <div className={styles.descr_point}>
+              <span>{crew.director}</span>
+            </Paragraph>
+            <Paragraph>
               Genre:
               {' '}
-              <span>{creditsGenre.join(', ')}</span>
-            </div>
-            <div className={styles.descr_point}>
+              <span>{genres}</span>
+            </Paragraph>
+            <Paragraph>
               Year:
               {' '}
-              <span>{movie.release_date.match(/\b(18|19|20)\d{2}\b/)[0]}</span>
-            </div>
-            <div className={`${styles.descr_point} ${styles.tagline}`}>
-              {movie.tagline}
-            </div>
-          </div>
+              <span>{year}</span>
+            </Paragraph>
+            <Paragraph style={{opacity: 0.7}}>{tagline}</Paragraph>
+          </InfoSection>
 
-          <button type="button" className={styles.btn}>
+          <Button>
             <Link to="/movie">More</Link>
-          </button>
-        </div>
-      </div>
-    </header>
+          </Button>
+        </HeaderWrapper>
+      </Container>
+    </StyledHeader>
   );
 }

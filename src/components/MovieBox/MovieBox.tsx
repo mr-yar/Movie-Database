@@ -1,67 +1,81 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {loadSelectedMovieAction} from '../../redux/reducers/selectedMovieReducer';
-import {IMovie} from '../../common/types';
-import likeIcon from './icons/like.svg';
-import downloadIcon from './icons/downloads.svg';
-import commentsIcon from './icons/comments.svg';
-import noImg from './icons/no-camera.svg';
-import styles from './movieBox.module.sass';
+import {loadSelectedMovieAction} from '../../redux/modules/selectedMovie/selectedMovieSlice';
+import {TMovie} from '../../common/types';
+import {Views} from '../../common/Icons/Views';
+import {Rating} from '../../common/Icons/Rating';
+import {Likes} from '../../common/Icons/Likes';
+import noImg from '../../common/Icons/svg/no-camera.svg';
+import {Button} from '../../common/common.styles';
+import {
+  Info,
+  InfoIcon,
+  MovieBoxName,
+  OriginalTitle,
+  ReleaseDate,
+  StyledMovieBox
+} from './MovieBox.styles';
 
-export function MovieBox({movie}: {movie: IMovie}): JSX.Element {
+export function MovieBox({movie}: {movie: TMovie}): JSX.Element {
   const dispatch = useDispatch();
+
+  const {
+    popularity,
+    title,
+    originalTitle,
+    posterPath,
+    voteCount,
+    voteAverage,
+    releaseDate
+  } = movie;
 
   function movieBoxHandler() {
     dispatch(loadSelectedMovieAction(movie.id));
   }
 
   return (
-    <div
-      className={styles.movieBox}
-      role="button"
-      tabIndex={0}
-      onClick={movieBoxHandler}
-    >
+    <StyledMovieBox role="button" tabIndex={0} onClick={movieBoxHandler}>
       <img
         src={
-          movie.poster_path === null
+          posterPath === null
             ? noImg
-            : `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : `https://image.tmdb.org/t/p/w500${posterPath}`
         }
         alt=""
       />
-      <div className={styles.info}>
-        <div className={styles.like}>
-          <img src={likeIcon} alt="" />
-          1,218
-        </div>
-        <div className={styles.downloads}>
-          <img src={downloadIcon} alt="" />
-          731
-        </div>
-        <div className={styles.comments}>
-          <img src={commentsIcon} alt="" />
-          58
-        </div>
 
-        <div className={styles.releaseDate}>
+      <Info>
+        <InfoIcon>
+          <Views />
+          {popularity}
+        </InfoIcon>
+        <InfoIcon>
+          <Rating />
+          {voteAverage}
+        </InfoIcon>
+        <InfoIcon style={{marginBottom: '2rem'}}>
+          <Likes />
+          {voteCount}
+        </InfoIcon>
+
+        <ReleaseDate>
           Release Date:
           {' '}
-          <span>{movie.release_date}</span>
-        </div>
-        <div className={styles.originalName}>
-          Original name:
+          <span>{releaseDate}</span>
+        </ReleaseDate>
+        <OriginalTitle>
+          Original title:
           {' '}
-          <span>{movie.original_title}</span>
-        </div>
+          <span>{originalTitle}</span>
+        </OriginalTitle>
 
-        <button type="button" className={styles.btn}>
+        <Button style={{margin: '50% auto auto'}}>
           <Link to="/movie">More</Link>
-        </button>
-      </div>
+        </Button>
+      </Info>
 
-      <div className={styles.name}>{movie.title}</div>
-    </div>
+      <MovieBoxName>{title}</MovieBoxName>
+    </StyledMovieBox>
   );
 }

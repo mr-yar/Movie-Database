@@ -1,70 +1,65 @@
-import React, {KeyboardEvent, useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import React, {KeyboardEvent, useContext, useState} from 'react';
+import {Link, useHistory, useRouteMatch} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {searchMovieAction} from '../../redux/reducers/searchReducer';
-import styles from './searcher.module.sass';
+import {searchMovieAction} from '../../redux/modules/search/searchReducer';
+import {Container} from '../../common/common.styles';
+import {
+  InputWrapper,
+  MenuSectionText,
+  SearcherMenu,
+  SearcherSectionTitle,
+  SearcherWrapper,
+  SearchInput,
+  StyledSearcher
+} from './Searcher.styles';
+import {MainThemeContext} from '../../styles/theme';
 
 export function Searcher(): JSX.Element {
+  const BLACK = useContext(MainThemeContext).color.main;
   const dispatch = useDispatch();
   const history = useHistory();
+  const {path} = useRouteMatch();
+
+  const isSearching = path === '/search';
 
   const [inputState, setInputState] = useState('');
-  const [activeSection, setActiveSection] = useState(1);
-  const isInputEmpty = inputState.trim() === '';
 
   const handleEnterDown = (event: KeyboardEvent) => {
-    if (event.key === 'Enter' && !isInputEmpty) {
+    if (event.key === 'Enter' && inputState.trim() !== '') {
       dispatch(searchMovieAction(inputState));
-      setActiveSection(2);
-      history.push('/database/selectedmovie');
+      history.push('/search');
     }
   };
 
   return (
-    <div className={styles.searcher}>
-      <div className="container">
-        <div className={styles.searcher_wrapper}>
-          <h1 className={styles.title}>Featured movies</h1>
-          <div className={styles.menu}>
-            <Link to="/database/" onClick={() => setActiveSection(1)}>
-              <span
-                className={
-                  activeSection === 1
-                    ? `${styles.section} ${styles.active}`
-                    : styles.section
-                }
-              >
+    <StyledSearcher>
+      <Container>
+        <SearcherWrapper>
+          <SearcherSectionTitle>Featured movies</SearcherSectionTitle>
+          <SearcherMenu>
+            <Link to="/">
+              <MenuSectionText style={!isSearching ? {color: BLACK} : {}}>
                 New Realised
-              </span>
+              </MenuSectionText>
             </Link>
-            <span className={styles.section}>/</span>
-            {' '}
-            <Link to="/database/selectedmovie" onClick={() => setActiveSection(2)}>
-              <span
-                className={
-                  activeSection === 2
-                    ? `${styles.section} ${styles.active}`
-                    : styles.section
-                }
-              >
+            <MenuSectionText> / </MenuSectionText>
+            <Link to="/search">
+              <MenuSectionText style={isSearching ? {color: BLACK} : {}}>
                 Search movies
-              </span>
+              </MenuSectionText>
             </Link>
-          </div>
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <div className={styles.searcher_box}>
-            <input
+          </SearcherMenu>
+          <InputWrapper>
+            <SearchInput
               type="text"
-              name="input"
-              className={styles.input}
               placeholder="Search..."
               autoComplete="off"
               onChange={(event) => setInputState(event.target.value)}
               onKeyPress={(event) => handleEnterDown(event)}
             />
-          </div>
-        </div>
-      </div>
-    </div>
+          </InputWrapper>
+        </SearcherWrapper>
+      </Container>
+    </StyledSearcher>
   );
 }

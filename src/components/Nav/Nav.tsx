@@ -1,51 +1,80 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import logoDatabase from './icons/database-storage.svg';
-import logoMovie from './icons/clapperboard.svg';
-import styles from './nav.module.sass';
+import {useDispatch, useSelector} from 'react-redux';
+import Switch from 'react-switch';
+import {Link, useRouteMatch} from 'react-router-dom';
+import {RootState} from '../../redux/store';
+import {
+  darkModeOffAction,
+  darkModeOnAction
+} from '../../redux/modules/themeModeReducer';
+import {Container} from '../../common/common.styles';
+import {ListMovies} from '../../common/Icons/ListMovies';
+import {Clapperboard} from '../../common/Icons/Clapperboard';
+import Moon from '../../common/Icons/Moon';
+import Sun from '../../common/Icons/Sun';
+import {
+  NavIcon,
+  NavLogo,
+  NavMenu,
+  NavWrapper,
+  StyledNav,
+  Username
+} from './Nav.styles';
 
 export function Nav(): JSX.Element {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const {path} = useRouteMatch();
 
-  // const themeMode = useSelector(
-  //   (state: RootState) => state.themeModeReducer.isDarkModeOn
-  // );
-  // function themeHandler() {
-  //   dispatch(modeChangeAction());
-  // }
+  const themeMode = useSelector(
+    (state: RootState) => state.themeModeReducer.isDarkModeOn
+  );
+
+  function themeHandler() {
+    if (themeMode) {
+      dispatch(darkModeOffAction());
+    } else {
+      dispatch(darkModeOnAction());
+    }
+  }
+
+  const isMoviePage = path === '/movie';
 
   return (
-    <nav className={styles.nav}>
-      <div className="container">
-        <div className={styles.nav_wrapper}>
-          <div className={styles.logo}>
+    <StyledNav>
+      <Container>
+        <NavWrapper>
+          <NavLogo>
             <Link to="/">
               Movie
               {' '}
               <span>Database</span>
             </Link>
-          </div>
-          <div className={styles.menu}>
-            <Link to="/database">
-              <img src={logoDatabase} alt="" className={styles.pages} />
+          </NavLogo>
+          <NavMenu>
+            <Link to="/">
+              <NavIcon>
+                <ListMovies isActive={!isMoviePage} />
+              </NavIcon>
             </Link>
             <Link to="/movie">
-              <img src={logoMovie} alt="" className={styles.pages} />
+              <NavIcon>
+                <Clapperboard isActive={isMoviePage} />
+              </NavIcon>
             </Link>
-          </div>
-          {/* <Switch */}
-          {/*  checked={themeMode} */}
-          {/*  onChange={themeHandler} */}
-          {/*  offColor="#00cbbb" */}
-          {/*  onColor="#2b4c99" */}
-          {/*  uncheckedIcon={<Sun />} */}
-          {/*  checkedIcon={<Moon />} */}
-          {/*  width={70} */}
-          {/*  height={35} */}
-          {/* /> */}
-          <div className={styles.avatar}>John Doe</div>
-        </div>
-      </div>
-    </nav>
+          </NavMenu>
+          <Switch
+            checked={themeMode}
+            onChange={themeHandler}
+            offColor="#00cbbb"
+            onColor="#2b4c99"
+            uncheckedIcon={<Sun />}
+            checkedIcon={<Moon />}
+            width={70}
+            height={35}
+          />
+          <Username>John Doe</Username>
+        </NavWrapper>
+      </Container>
+    </StyledNav>
   );
 }

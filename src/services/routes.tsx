@@ -3,27 +3,28 @@ import {Route, Switch} from 'react-router-dom';
 import {Database} from '../pages/Database/Database';
 import {SelectedMovie} from '../pages/SelectedMovie/SelectedMovie';
 import {Nav} from '../components/Nav/Nav';
-import {Movie} from '../components/Movie/Movie';
-import {ISelectedMovie} from '../common/types';
+import {TSelectedMovie} from '../common/types';
+import {Header} from '../components/Header/Header';
+import {Searcher} from '../components/Searcher/Searcher';
+import {MoviesSearcher} from '../components/Movies/MoviesSearcher/MoviesSearcher';
 
 export const Routes = ({selectedMovie}: {
-  selectedMovie: ISelectedMovie;
+  selectedMovie: TSelectedMovie;
 }): JSX.Element => (
   <Switch>
-    <Route exact path="/database">
-      <Database movie={selectedMovie} />
-    </Route>
-    <Route exact path="/database/selectedmovie">
-      <SelectedMovie movie={selectedMovie} />
-    </Route>
-    <Route exact path="/movie">
-      <>
-        <Nav />
-        <Movie movie={selectedMovie} />
-      </>
-    </Route>
     <Route exact path="/">
       <Database movie={selectedMovie} />
+    </Route>
+    <Route exact path="/search">
+      <>
+        <Nav />
+        <Header movie={selectedMovie} />
+        <Searcher />
+        <MoviesSearcher />
+      </>
+    </Route>
+    <Route exact path="/movie">
+      <SelectedMovie movie={selectedMovie} />
     </Route>
   </Switch>
 );

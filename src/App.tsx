@@ -1,41 +1,44 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
+import {ThemeProvider} from 'styled-components';
 import {RootState} from './redux/store';
-import {loadSelectedMovieAction} from './redux/reducers/selectedMovieReducer';
-import {loadLastMoviesAction} from './redux/reducers/moviesReducer';
+import {loadSelectedMovieAction} from './redux/modules/selectedMovie/selectedMovieSlice';
+import {loadLastMoviesAction} from './redux/modules/movies/moviesSlice';
 import {Loader} from './components/Loader/Loader';
 import {Routes} from './services/routes';
-import './styles/main.sass';
+import {MainThemeContext} from './styles/theme';
+import {GlobalStyle} from './styles/global.styles';
+import './styles/fonts.css';
 
 function App(): JSX.Element {
   const dispatch = useDispatch();
+  const theme = useContext(MainThemeContext);
+
   const movies = useSelector((state: RootState) => state.moviesReducer.movies);
-
-  if (movies.length === 0) {
-    dispatch(loadLastMoviesAction());
-  }
-
-  const isFetchingMovies = useSelector(
-    (state: RootState) => state.moviesReducer.loading
-  );
-
   const selectedMovie = useSelector(
     (state: RootState) => state.selectedMovieReducer.selectedMovie
   );
 
-  if (!isFetchingMovies) {
-    if (Object.keys(selectedMovie).length === 0) {
-      dispatch(loadSelectedMovieAction(movies[0].id));
-    }
+  const isEmpty = movies.length === 0;
+
+  if (isEmpty) {
+    dispatch(loadLastMoviesAction());
+  }
+
+  if (!isEmpty && !selectedMovie.id) {
+    dispatch(loadSelectedMovieAction(movies[0].id));
   }
 
   return (
-    <Router>
-      <div className="app">
-        {isFetchingMovies ? <Loader /> : <Routes selectedMovie={selectedMovie} />}
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Router>
+        <div className="app">
+          {isEmpty ? <Loader /> : <Routes selectedMovie={selectedMovie} />}
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

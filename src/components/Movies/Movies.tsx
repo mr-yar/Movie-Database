@@ -1,20 +1,23 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../../redux/store';
-import {loadNewLastMoviesAction} from '../../redux/reducers/moviesReducer';
 import {MovieBox} from '../MovieBox/MovieBox';
-import {IMovie} from '../../common/types';
-import styles from './movies.module.sass';
+import {RootState} from '../../redux/store';
+import {loadNewLastMoviesAction} from '../../redux/modules/movies/moviesSlice';
+import {TMovie} from '../../common/types';
+import {Container} from '../../common/common.styles';
+import {MoviesWrapper, StyledMovies} from './Movies.styles';
 
 export function Movies(): JSX.Element {
   const dispatch = useDispatch();
+
   const movies = useSelector((state: RootState) => state.moviesReducer.movies);
+
   const currentPage = useSelector(
     (state: RootState) => state.moviesReducer.currentPage
   );
 
-  const movieBoxes = movies.map((item: IMovie) => (
+  const movieBoxes = movies.map((item: TMovie) => (
     <MovieBox key={item.id} movie={item} />
   ));
 
@@ -23,8 +26,8 @@ export function Movies(): JSX.Element {
   }
 
   return (
-    <div className={styles.movies}>
-      <div className="container">
+    <StyledMovies>
+      <Container>
         <InfiniteScroll
           dataLength={movies.length}
           hasMore
@@ -32,9 +35,9 @@ export function Movies(): JSX.Element {
           next={fetchData}
           style={{overflow: 'hidden'}}
         >
-          <div className={styles.movies_wrapper}>{movieBoxes}</div>
+          <MoviesWrapper>{movieBoxes}</MoviesWrapper>
         </InfiniteScroll>
-      </div>
-    </div>
+      </Container>
+    </StyledMovies>
   );
 }
