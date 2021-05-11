@@ -58,6 +58,7 @@ export const Username = styled.div`
   flex-basis: 33%;
   font-size: 1.8rem;
   font-weight: 700;
+  color: ${(props) => props.theme.color.second};
   @media screen and (max-width: 576px) {
     display: none;
   }
