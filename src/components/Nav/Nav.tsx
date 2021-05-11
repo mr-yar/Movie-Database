@@ -3,23 +3,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import Switch from 'react-switch';
 import {Link, useRouteMatch} from 'react-router-dom';
 import {RootState} from '../../store';
-import {Container} from '../../common/common.styles';
+import {darkModeOffAction, darkModeOnAction} from '../../store/modules/themeMode/actions';
 import {ListMovies} from '../../common/Icons/ListMovies';
 import {Clapperboard} from '../../common/Icons/Clapperboard';
 import Moon from '../../common/Icons/Moon';
 import Sun from '../../common/Icons/Sun';
-import {
-  NavIcon,
-  NavLogo,
-  NavMenu,
-  NavWrapper,
-  StyledNav,
-  Username
-} from './Nav.styles';
-import {
-  darkModeOffAction,
-  darkModeOnAction
-} from '../../store/modules/themeMode/actions';
+import {Container} from '../../common/common.styles';
+import {NavIcon, NavLogo, NavMenu, NavWrapper, StyledNav, Username} from './Nav.styles';
 
 export function Nav(): JSX.Element {
   const dispatch = useDispatch();

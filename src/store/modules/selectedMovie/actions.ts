@@ -1,6 +1,11 @@
 import {createAction} from '@reduxjs/toolkit';
 import ISO6391 from 'iso-639-1';
-import {TFetchedCrew, TFetchedResult, TFetchedSelectedMovie} from '../../../common/types';
+import {
+  TFetchedCrew,
+  TFetchedReleaseDateResult,
+  TFetchedSelectedMovie
+} from './types';
+
 
 const LOAD_SELECTED_MOVIE_ACTION = 'SELECTED_MOVIE/loadSelectedMovieAction';
 const PUT_SELECTED_MOVIE_ACTION = 'SELECTED_MOVIE/putSelectedMovieAction';
@@ -10,7 +15,9 @@ export const loadSelectedMovieAction = createAction<number>(LOAD_SELECTED_MOVIE_
 export const putSelectedMovieAction = createAction(
   PUT_SELECTED_MOVIE_ACTION,
   (movie: TFetchedSelectedMovie) => {
-    const director = movie.credits.crew.find((item: TFetchedCrew) => item.job === 'Director');
+    const director = movie.credits.crew.find(
+      (item: TFetchedCrew) => item.job === 'Director'
+    );
     const directorName = director ? director.name : 'Unknown';
 
     const directorOfPhotography = movie.credits.crew.find(
@@ -26,7 +33,7 @@ export const putSelectedMovieAction = createAction(
     const composerName = composer ? composer.name : 'Unknown';
 
     const ageRank = movie.release_dates.results.find(
-      (item: TFetchedResult) => item.iso_3166_1 === 'US'
+      (item: TFetchedReleaseDateResult) => item.iso_3166_1 === 'US'
     );
     const certification = ageRank ? ageRank.release_dates[0].certification : 'NR';
 

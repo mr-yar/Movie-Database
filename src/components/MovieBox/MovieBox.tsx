@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {TMovie} from '../../common/types';
+import {loadSelectedMovieAction} from '../../store/modules/selectedMovie/actions';
 import {Views} from '../../common/Icons/Views';
 import {Rating} from '../../common/Icons/Rating';
 import {Likes} from '../../common/Icons/Likes';
-import noImg from '../../common/Icons/svg/no-camera.svg';
+import {TMovie} from '../../common/types';
 import {Button} from '../../common/common.styles';
 import {
   Info,
@@ -15,7 +15,7 @@ import {
   ReleaseDate,
   StyledMovieBox
 } from './MovieBox.styles';
-import {loadSelectedMovieAction} from '../../store/modules/selectedMovie/actions';
+import noImg from '../../common/Icons/svg/no-camera.svg';
 
 export function MovieBox({movie}: {movie: TMovie}): JSX.Element {
   const dispatch = useDispatch();
@@ -34,15 +34,10 @@ export function MovieBox({movie}: {movie: TMovie}): JSX.Element {
     dispatch(loadSelectedMovieAction(movie.id));
   }
 
-
   return (
     <StyledMovieBox role="button" tabIndex={0} onClick={movieBoxHandler}>
       <img
-        src={
-          posterPath === null
-            ? noImg
-            : `https://image.tmdb.org/t/p/w500${posterPath}`
-        }
+        src={posterPath === null ? noImg : `https://image.tmdb.org/t/p/w500${posterPath}`}
         alt=""
       />
 

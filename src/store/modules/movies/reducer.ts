@@ -5,7 +5,13 @@ import {
   putLastMoviesAction,
   putNewLastMoviesAction
 } from './actions';
-import {TMovieState} from '../../../common/types';
+import {TMovie} from '../../../common/types';
+
+export type TMovieState = {
+  movies: TMovie[];
+  currentPage: number;
+  loading: boolean;
+};
 
 const initialState: TMovieState = {
   movies: [],

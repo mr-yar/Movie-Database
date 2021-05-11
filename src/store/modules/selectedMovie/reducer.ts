@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {loadSelectedMovieAction, putSelectedMovieAction} from './actions';
-import {TSelectedMovieState} from '../../../common/types';
+import {TSelectedMovieState} from './types';
 
 const initialState: TSelectedMovieState = {
   selectedMovie: {

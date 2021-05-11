@@ -1,7 +1,12 @@
 import axios from 'axios';
 import {takeEvery, call, put} from 'redux-saga/effects';
-import {API_KEY, API_BASE_URL} from '../../../services/api';
 import {putLastMoviesAction, putNewLastMoviesAction} from './actions';
+import {API_KEY, API_BASE_URL} from '../../../services/api';
+
+type TLoadSelectedMovieAction = {
+  type: string;
+  payload: number;
+};
 
 function loadLastMovies() {
   return axios
@@ -22,7 +27,7 @@ function loadNewLastMovies(page: number) {
     .then((res) => res.results);
 }
 
-function* workerLoadNewLastMovies(action: {type: string; payload: number}): any {
+function* workerLoadNewLastMovies(action: TLoadSelectedMovieAction): any {
   const data = yield call(loadNewLastMovies, action.payload);
 
   yield put(putNewLastMoviesAction(data));

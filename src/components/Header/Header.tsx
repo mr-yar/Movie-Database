@@ -4,12 +4,7 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../store';
 import {TSelectedMovie} from '../../common/types';
 import {Button, Container} from '../../common/common.styles';
-import {
-  HeaderWrapper,
-  InfoSection,
-  Paragraph,
-  StyledHeader
-} from './Header.style';
+import {HeaderWrapper, InfoSection, Paragraph, StyledHeader} from './Header.style';
 
 export function Header({movie}: {movie: TSelectedMovie}): JSX.Element {
   const isFetchingSelectedMovie = useSelector(

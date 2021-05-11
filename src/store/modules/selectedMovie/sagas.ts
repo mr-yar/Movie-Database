@@ -1,8 +1,12 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {API_KEY, API_BASE_URL} from '../../../services/api';
-import {ILoadSelectedMovieAction} from '../../../common/types';
 import {putSelectedMovieAction} from './actions';
+import {API_KEY, API_BASE_URL} from '../../../services/api';
+
+type TLoadSelectedMovieAction = {
+  type: string;
+  payload: number;
+};
 
 function loadSelectedMovie(value: number) {
   return axios
@@ -13,7 +17,7 @@ function loadSelectedMovie(value: number) {
     .catch((error) => error.message);
 }
 
-function* workerLoadSelectedMovie(action: ILoadSelectedMovieAction): any {
+function* workerLoadSelectedMovie(action: TLoadSelectedMovieAction): any {
   const data = yield call(loadSelectedMovie, action.payload);
 
   yield put(putSelectedMovieAction(data));

@@ -1,11 +1,12 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import ProgressBar from 'react-customizable-progressbar';
+import {setCurrency, timeConvert} from '../../services/utils';
 import {RootState} from '../../store';
 import {GridElem} from '../GridElem/GridElem';
 import {Loader} from '../Loader/Loader';
-import {setCurrency, timeConvert} from '../../services/utils';
-import {TFetchedCast, IMovieProps} from '../../common/types';
+import {TMovieProps} from '../../common/types';
+import {TFetchedCast} from '../../store/modules/selectedMovie/types';
 import {Container} from '../../common/common.styles';
 import {
   CastTitle,
@@ -28,7 +29,7 @@ import {
   UserScoreSubtitle
 } from './Movie.styles';
 
-export function Movie({movie}: IMovieProps): JSX.Element {
+export function Movie({movie}: TMovieProps): JSX.Element {
   const isFetching = useSelector(
     (state: RootState) => state.selectedMovieReducer.loading
   );

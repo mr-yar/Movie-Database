@@ -1,8 +1,12 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {API_KEY, API_BASE_URL} from '../../../services/api';
 import {putSearchedMovieAction} from './actions';
-import {ISearchMovieAction} from '../../../common/types';
+import {API_KEY, API_BASE_URL} from '../../../services/api';
+
+type TSearchMovieAction = {
+  type: string;
+  payload: string;
+};
 
 function loadSearcher(value: string) {
   return axios
@@ -11,7 +15,7 @@ function loadSearcher(value: string) {
     .then((res) => res.results);
 }
 
-function* workerSearcher(action: ISearchMovieAction): any {
+function* workerSearcher(action: TSearchMovieAction): any {
   const data = yield call(loadSearcher, action.payload);
 
   yield put(putSearchedMovieAction(data));

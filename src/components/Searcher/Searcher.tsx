@@ -1,8 +1,8 @@
 import React, {KeyboardEvent, useContext, useState} from 'react';
 import {Link, useHistory, useRouteMatch} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {Container} from '../../common/common.styles';
 import {searchMovieAction} from '../../store/modules/search/actions';
+import {Container} from '../../common/common.styles';
 import {
   InputWrapper,
   MenuSectionText,

@@ -3,10 +3,10 @@ import {Route, Switch} from 'react-router-dom';
 import {Database} from '../pages/Database/Database';
 import {SelectedMovie} from '../pages/SelectedMovie/SelectedMovie';
 import {Nav} from '../components/Nav/Nav';
-import {TSelectedMovie} from '../common/types';
 import {Header} from '../components/Header/Header';
 import {Searcher} from '../components/Searcher/Searcher';
 import {MoviesSearcher} from '../components/Movies/MoviesSearcher/MoviesSearcher';
+import {TSelectedMovie} from '../common/types';
 
 export const Routes = ({selectedMovie}: {
   selectedMovie: TSelectedMovie;
