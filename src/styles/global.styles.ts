@@ -6,18 +6,20 @@ export const GlobalStyle = createGlobalStyle<any>`
 ${normalize}
 
 
+* {
+transition: background-color 0.25s linear, color 0.25s linear;
+} 
+
 html {
   font-size: 62.5%;
   color: ${(props) => props.theme.color.main};
-}
-html{
-  color: #ffffff;
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
 }
+
 @media screen and (max-width: 1200px) {
   html {
     font-size: 50%;

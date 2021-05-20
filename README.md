@@ -6,7 +6,7 @@ To see demo: https://movie-searcher-8e6c1.web.app/
 
 ##### - By default, app gives a list of relevant movies with endless loading
 
-##### - The header shows the main information about the selected movie
+##### - The header shows the mainText information about the selected movie
 
 ##### - Clicking on the "More" button opens a page with detailed information
 

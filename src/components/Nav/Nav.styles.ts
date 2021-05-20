@@ -5,7 +5,7 @@ export const StyledNav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 999;
-  background: #ffffff;
+  background: ${(props) => props.theme.color.bg};
 `;
 
 export const NavWrapper = styled.div`
@@ -19,7 +19,7 @@ export const NavLogo = styled.div`
   text-align: left;
   flex-basis: 33%;
   a {
-    color: #3f444e;
+    color: ${(props) => props.theme.color.mainText};
     font-size: 2.2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -36,7 +36,6 @@ export const NavLogo = styled.div`
 export const NavMenu = styled.div`
   text-align: center;
   flex-basis: 33%;
-
   @media screen and (max-width: 576px) {
     display: flex;
   }
@@ -58,8 +57,13 @@ export const Username = styled.div`
   flex-basis: 33%;
   font-size: 1.8rem;
   font-weight: 700;
-  color: ${(props) => props.theme.color.second};
+  color: ${(props) => props.theme.color.secondText};
   @media screen and (max-width: 576px) {
     display: none;
   }
+`;
+
+export const SwitchWrapper = styled.div`
+  flex-basis: 33%;
+  text-align: end;
 `;

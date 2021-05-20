@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledMovies = styled.div`
-  background: #edeff0;
+  background: ${(props) => props.theme.color.bg};
   font-family: Roboto, sans-serif;
   min-height: 50vh;
 `;

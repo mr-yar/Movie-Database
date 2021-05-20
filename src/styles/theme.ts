@@ -1,10 +1,19 @@
-import React from 'react';
+const accent = '#1291bf';
 
-const theme = {
+export const lightTheme = {
   color: {
-    accent: '#1291bf',
-    main: '#3f444e',
-    second: '#b5b5b5'
+    accent,
+    mainText: '#3f444e',
+    secondText: '#b5b5b5',
+    bg: '#edeff0'
   }
 };
-export const MainThemeContext = React.createContext(theme);
+
+export const darkTheme = {
+  color: {
+    accent,
+    mainText: '#e1e4e9',
+    secondText: '#828282',
+    bg: '#1c1c1c'
+  }
+};

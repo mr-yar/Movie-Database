@@ -1,4 +1,4 @@
-export type IconProps = {size?: string; isActive?: boolean};
+export type IconProps = {isActive?: boolean};
 
 export type TMovieProps = {
   movie: TSelectedMovie;

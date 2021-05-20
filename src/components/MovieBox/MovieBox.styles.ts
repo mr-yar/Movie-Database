@@ -67,7 +67,7 @@ export const ReleaseDate = styled.div`
 
 export const OriginalTitle = styled.div`
   margin-top: 1rem;
-  color: ${(props) => props.theme.color.second};
+  color: ${(props) => props.theme.color.secondText};
 `;
 
 export const MovieBoxName = styled.div`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledSearcher = styled.div`
   padding: 2rem;
   font-family: Roboto, sans-serif;
-  background: #edeff0;
+  background: ${(props) => props.theme.color.bg};
   @media screen and (max-width: 768px) {
     padding: 1rem;
   }
@@ -24,6 +24,7 @@ export const SearcherSectionTitle = styled.h1`
   margin: 0;
   font-size: 2.7rem;
   font-weight: 700;
+  color: ${(props) => props.theme.color.mainText};
   @media screen and (max-width: 768px) {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -60,7 +61,7 @@ export const InputWrapper = styled.span`
     content: '';
     bottom: -0.4rem;
     height: 0.2rem;
-    background-color: ${(props) => props.theme.color.main};
+    background-color: ${(props) => props.theme.color.mainText};
     opacity: 0.2;
   }
 `;
@@ -68,12 +69,14 @@ export const InputWrapper = styled.span`
 export const SearchInput = styled.input`
   border: none;
   position: relative;
-  background: #edeff0;
-  color: ${(props) => props.theme.color.main};
+  background: ${(props) => props.theme.color.bg};
+  color: ${(props) => props.theme.color.mainText};
+  caret-color: ${(props) => props.theme.color.mainText};
   font-family: 'Arial MT', sans-serif;
   font-size: 2rem;
   font-weight: 400;
   font-style: italic;
+
   ::placeholder {
     color: #9b9ea3;
   }

@@ -58,7 +58,7 @@ export const MovieTitle = styled.h1`
     margin-bottom: 2rem;
   }
   span {
-    color: ${(props) => props.theme.color.second};
+    color: ${(props) => props.theme.color.secondText};
   }
 `;
 
@@ -115,7 +115,7 @@ export const Person = styled.div`
   font-weight: 400;
   padding: 0.7rem;
   span {
-    color: ${(props) => props.theme.color.second};
+    color: ${(props) => props.theme.color.secondText};
     font-weight: 400;
     font-style: italic;
   }
@@ -213,7 +213,7 @@ export const OverviewText = styled.div`
 `;
 
 export const SecondaryText = styled.span`
-  color: ${(props) => props.theme.color.second}
+  color: ${(props) => props.theme.color.secondText}
 `;
 
 export const Dot = (): JSX.Element => <span style={{fontSize: '3rem'}}>·</span>;

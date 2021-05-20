@@ -15,7 +15,7 @@ import {
   ReleaseDate,
   StyledMovieBox
 } from './MovieBox.styles';
-import noImg from '../../common/Icons/svg/no-camera.svg';
+import noImg from '../../assets/svg/no-camera.svg';
 
 export function MovieBox({movie}: {movie: TMovie}): JSX.Element {
   const dispatch = useDispatch();
