@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const Grid = styled.div`
+  @media screen and (max-width: 576px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+`;
+
 export const GridValue = styled.div`
   font-size: 2rem;
   font-weight: 500;
